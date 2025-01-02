@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2 class="mt-5">Student Details</h2>
+    <h4>{{ student[1] }}</h4> <!-- Student Name -->
+    <p><strong>Subjects:</strong> {{ student[2] }}</p>
+    <p><strong>Contact:</strong> {{ student[3] }}</p>
+    <p><strong>Fees Paid:</strong> {{ student[4] }}</p>
+    <p><strong>Fees Pending:</strong> {{ student[5] }}</p>
+
+    <h3>Grades</h3>
+    {% if grades %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Assignment</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grade in grades %}
+            <tr>
+                <td>{{ grade[0] }}</td>
+                <td>{{ grade[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No grades available for this student.</p>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Student List</a>
+</div>
+
+{% endblock %}

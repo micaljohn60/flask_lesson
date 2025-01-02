@@ -1,14 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% block content %}
 
-<body>
-    <h1>Hello World</h1>
-</body>
 
-</html>
+<div class="container">
+    <h2 class="mt-5">Student List</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Subjects</th>
+                <th>Contact</th>
+                <th>Fees Paid</th>
+                <th>Fees Pending</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+                <td>{{ student[3] }}</td>
+                <td>{{ student[4] }}</td>
+                <td>{{ student[5] }}</td>
+                <td>
+                    <a href="{{ url_for('update_student', student_id=student[0]) }}" class="btn btn-warning">Update</a>
+                    <a href="{{ url_for('student_details', student_id=student[0]) }}" class="btn btn-info">Details</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

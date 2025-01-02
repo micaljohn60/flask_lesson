@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Update Student Information</h1>
+<form method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{ student[1] }}"><br><br>
+
+    <label for="subjects">Subjects:</label>
+    <input type="text" id="subjects" name="subjects" value="{{ student[2] }}"><br><br>
+
+    <label for="contact">Contact:</label>
+    <input type="text" id="contact" name="contact" value="{{ student[3] }}"><br><br>
+
+    <label for="fees_paid">Fees Paid:</label>
+    <input type="number" id="fees_paid" name="fees_paid" value="{{ student[4] }}"><br><br>
+
+    <label for="fees_pending">Fees Pending:</label>
+    <input type="number" id="fees_pending" name="fees_pending" value="{{ student[5] }}"><br><br>
+
+    <button type="submit">Update</button>
+</form>
+
+
+{% endblock %}

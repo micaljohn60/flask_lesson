@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Assignments</h1>
+<a href="/add_assignment">Add Assignment</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+    </tr>
+    {% for assignment in assignments %}
+    <tr>
+        <td>{{ assignment[0] }}</td>
+        <td>{{ assignment[1] }}</td>
+        <td>{{ assignment[2] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
